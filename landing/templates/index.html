@@ -1,1 +1,31 @@
-Hello, world
+<!DOCTYPE html>
+{% spaceless %}
+    {% load staticfiles %}
+{% endspaceless %}
+<html lang="en">
+    <head>
+            <!-- Required meta tags -->
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+            <!-- Custom CSS -->
+            <link href="{% static 'index.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="title">
+            <img class="title-background" src="{% static 'title.png' %}" />
+            <div>
+                Онлайн трансляция мероприятий
+            </div>
+        </div>
+        <div class="slogan">
+            Переходи на новый уровень вместе с нами
+        </div>
+        <div class="price">
+            <img class="price-background" src="{% static 'price.png' %}" />
+        </div>
+        <div class="footer">
+            Все права защищены
+        </div>
+    </body>
+</html>
