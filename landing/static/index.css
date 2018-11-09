@@ -3,6 +3,10 @@ html {
 	min-height: 100%;
 }
 
+body {
+  margin: 0;
+}
+
 .title {
   position: relative;
   padding-left: 0;
@@ -11,6 +15,19 @@ html {
 
 .title-background {
   width: 100%;
+}
+
+.title-content {
+  z-index: 100;
+  font-size: 4rem;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  position: absolute;
+  top: 30%;
+  left: 20%;
+  right: 20%;
+  bottom: 30%;
 }
 
 .price {
