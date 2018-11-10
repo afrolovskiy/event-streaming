@@ -15,6 +15,7 @@ body {
 
 .title-background {
   width: 100%;
+  display: block;
 }
 
 .title-content {
@@ -30,6 +31,13 @@ body {
   bottom: 30%;
 }
 
+.slogan {
+  font-size: 2rem;
+  color: white;
+  background-color: black;
+  text-align: center;
+}
+
 .price {
   position: relative;
   padding-left: 0;
@@ -38,4 +46,12 @@ body {
 
 .price-background {
   width: 100%;
+  display: block;
+}
+
+.footer {
+  font-size: 1rem;
+  color: white;
+  background-color: black;
+  text-align: center;
 }
