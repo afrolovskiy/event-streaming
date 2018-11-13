@@ -15,3 +15,7 @@ class OrderView(FormView):
 
     def get_success_url(self):
         return reverse('landing:index')
+
+    def form_valid(self, form):
+        form.send_email()
+        return super().form_valid(form)
