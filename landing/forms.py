@@ -9,24 +9,24 @@ class OrderForm(forms.Form):
     TWO_COMMENTATORS = '2 commentators'
     THREE_COMMENTATORS = '3 commentators'
     OUR_INTERNET = 'our internet'
-    OPTIONS = ((x, x) for x in (
-        SINGLE_CAMERA,
-        TWO_CAMERAS,
-        THREE_CAMERAS,
-        SIGNLE_COMMENTATOR,
-        TWO_COMMENTATORS,
-        THREE_COMMENTATORS,
-        OUR_INTERNET,
-    ))
+    OPTIONS = (
+        (SINGLE_CAMERA, 'Съемка в 1 камеру'),
+        (TWO_CAMERAS, 'Съемка в 2 камеры'),
+        (THREE_CAMERAS, 'Съемка в 3 камеры'),
+        (SIGNLE_COMMENTATOR, '1 комментатор'),
+        (TWO_COMMENTATORS, '2 комментатора'),
+        (THREE_COMMENTATORS, '3 комментатора'),
+        (OUR_INTERNET, 'Наш интернет'),
+    )
 
-    event = forms.CharField(max_length=255)
-    place = forms.CharField(max_length=255)
-    date = forms.DateField()
-    name = forms.CharField(max_length=255)
-    phone = forms.CharField(max_length=64)
-    email = forms.CharField(max_length=255)
-    options = forms.MultipleChoiceField(choices=())
-    comments = forms.CharField(max_length=512)
+    event = forms.CharField(max_length=255, label='Мероприятие')
+    place = forms.CharField(max_length=255, label='Местро проведения')
+    date = forms.DateField(label='Дата проведения')
+    name = forms.CharField(max_length=255, label='Как к Вам обращаться')
+    phone = forms.CharField(max_length=64, label='Контактный телефон')
+    email = forms.CharField(max_length=255, label='Электронная почта')
+    options = forms.MultipleChoiceField(choices=OPTIONS, label='Необходимо')
+    comments = forms.CharField(max_length=512, label='Комментарии')
 
     def send_email(self):
         pass

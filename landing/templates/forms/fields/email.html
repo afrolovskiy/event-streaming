@@ -1,0 +1,5 @@
+{% extends "forms/fields/field.html" %}
+
+{% block input %}
+    <input type="email" id="{{ field.auto_id }}" class="form-control" name="{{ field.name }}" value="{{ field.value|default_if_none:'' }}">
+{% endblock %}

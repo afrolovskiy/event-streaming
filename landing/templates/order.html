@@ -12,6 +12,19 @@
             <link href="{% static 'css/order.css' %}" rel="stylesheet">
     </head>
     <body>
-        Create order
+        <form>
+            {% include "forms/errors.html" with errors=form.non_field_errors %}
+            <div>
+                {% csrf_token %}
+                {% include "forms/fields/text.html" with field=form.event %}
+                {% include "forms/fields/text.html" with field=form.place %}
+                {% include "forms/fields/date.html" with field=form.date %}
+                {% include "forms/fields/text.html" with field=form.name %}
+                {% include "forms/fields/text.html" with field=form.phone %}
+                {% include "forms/fields/email.html" with field=form.email %}
+                {% include "forms/fields/multiselect.html" with field=form.options %}
+                {% include "forms/fields/textarea.html" with field=form.comments %}
+            </div>
+        </form>
     </body>
 </html>

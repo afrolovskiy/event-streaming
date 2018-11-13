@@ -1,0 +1,5 @@
+{% extends "forms/fields/field.html" %}
+
+{% block input %}
+    <textarea class="form-control" rows="3" id="{{ field.auto_id }}" name="{{ field.name }}">{{ field.value|default_if_none:'' }}</textarea>
+{% endblock %}

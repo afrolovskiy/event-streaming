@@ -1,0 +1,12 @@
+
+{% extends "forms/fields/field.html" %}
+
+{% block input %}
+    <select id="{{ field.auto_id }}" class="form-control" name="{{ field.name }}" multiple>
+        {% for value, text in field.field.choices %}
+        <option value="{{ value }}" {% if value|slugify == field.value|slugify %}selected{% endif %}>
+            {{ text }}
+        </option>
+        {% endfor %}
+    </select>
+{% endblock %}
