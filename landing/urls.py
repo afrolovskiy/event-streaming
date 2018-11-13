@@ -1,7 +1,8 @@
 from django.urls import path
 
-from landing.views import IndexView
+from landing import views
 
 urlpatterns = [
-    path('', IndexView.as_view(), name='index'),
+    path('order/', views.OrderView.as_view(), name='order'),
+    path('', views.IndexView.as_view(), name='index'),
 ]

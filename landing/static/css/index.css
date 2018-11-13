@@ -52,21 +52,63 @@ body {
 .price-content {
   z-index: 100;
   color: black;
+  font-weight: bold;
   text-align: center;
   position: absolute;
+  width: 100%;
   top: 10%;
 }
 
-.price-name {
-  display: inline;
-  border:2px #00FFFF solid;
+.price-title {
+  font-size: 1.4rem;
   text-transform: uppercase;
 }
 
-.price-value {
-  display: inline;
-  border:2px #00FFFF solid;
+.price-item {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  width: 50%;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.price-name {
+  border:2px #5C90B0 solid;
   text-transform: uppercase;
+  flex: 0 0 50%;
+  max-width: 50%;
+  border-radius: 3px;
+  margin-left: 1px;
+  margin-right: 1px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.price-value {
+  border:2px #5C90B0 solid;
+  flex: 0 0 50%;
+  max-width: 50%;
+  border-radius: 3px;
+  margin-left: 1px;
+  margin-right: 1px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.order-button {
+  border-radius: 3px;
+  border:2px red solid;
+  font-weight: bold;
+  font-size: 2.5rem;
+  text-align: center;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  width: 13rem;
 }
 
 .footer {
