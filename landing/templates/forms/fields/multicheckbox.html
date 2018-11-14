@@ -1,0 +1,12 @@
+{% extends "forms/fields/field.html" %}
+
+{% block input %}
+    <ul class="form-control">
+        {% for value, text in field.field.choices %}
+        <li>
+            <label for="{{ field.name }}">{{ text}}</label>
+            <input type="checkbox" id="{{ field.auto_id }}" class="form-control" name="{{ field.name }}" value="{{ value|default_if_none:'' }}">
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
