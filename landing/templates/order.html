@@ -1,31 +1,17 @@
-<!DOCTYPE html>
-{% spaceless %}
-    {% load staticfiles %}
-{% endspaceless %}
-<html lang="en">
-    <head>
-            <!-- Required meta tags -->
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-            <!-- Custom CSS -->
-            <link href="{% static 'css/order.css' %}" rel="stylesheet">
-    </head>
-    <body>
-        <form method="post" action="{% url 'order' %}">
-            {% include "forms/errors.html" with errors=form.non_field_errors %}
-            <div>
-                {% csrf_token %}
-                {% include "forms/fields/text.html" with field=form.event %}
-                {% include "forms/fields/text.html" with field=form.place %}
-                {% include "forms/fields/date.html" with field=form.date %}
-                {% include "forms/fields/text.html" with field=form.name %}
-                {% include "forms/fields/text.html" with field=form.phone %}
-                {% include "forms/fields/email.html" with field=form.email %}
-                {% include "forms/fields/multicheckbox.html" with field=form.options %}
-                {% include "forms/fields/textarea.html" with field=form.comments %}
-            </div>
-            <input type="submit" value="Отправить заявку">
-        </form>
-    </body>
-</html>
+<div>
+    <form class="order-form" method="post" action="{% url 'order' %}">
+        {% include "forms/errors.html" with errors=form.non_field_errors %}
+        <div>
+            {% csrf_token %}
+            {% include "forms/fields/text.html" with field=form.event %}
+            {% include "forms/fields/text.html" with field=form.place %}
+            {% include "forms/fields/date.html" with field=form.date %}
+            {% include "forms/fields/text.html" with field=form.name %}
+            {% include "forms/fields/text.html" with field=form.phone %}
+            {% include "forms/fields/email.html" with field=form.email %}
+            {% include "forms/fields/multicheckbox.html" with field=form.options %}
+            {% include "forms/fields/textarea.html" with field=form.comments %}
+        </div>
+        <input type="submit" value="Отправить заявку">
+    </form>
+</div>

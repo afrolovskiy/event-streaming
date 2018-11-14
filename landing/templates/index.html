@@ -8,6 +8,9 @@
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+            <!-- JQuery UI CSS -->
+            <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
             <!-- Custom CSS -->
             <link href="{% static 'css/index.css' %}" rel="stylesheet">
     </head>
@@ -51,11 +54,61 @@
                         <div class="price-value">от 200,00 до 2000,00 руб</div>
                     </div>
                 </div>
-                <div class="order-button">Заказать</button>
+                <input type="button" id="order-button" class="order-button" value="Заказать" />
             </div>
         </div>
         <div class="footer">
             Все права защищены
         </div>
+        <div id="dialog" style="display: none"></div>
+
+        <!-- Libraries -->
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <!-- jQuery UI -->
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+        <!-- Page javascript -->
+        <script type="text/javascript">
+            $(function () {
+                $("#dialog").dialog({
+                    autoOpen: false,
+                    modal: true,
+                });
+
+                var formAjaxSubmit = function(form, modal) {
+                    $(form).submit(function (e) {
+                        e.preventDefault();
+                        $.ajax({
+                            type: $(this).attr('method'),
+                            url: $(this).attr('action'),
+                            data: $(this).serialize(),
+                            success: function (xhr, ajaxOptions, thrownError) {
+                                if ( $(xhr).find('.has-error').length > 0 ) {
+                                    $(modal).html(xhr);
+                                    formAjaxSubmit(form, modal);
+                                } else {
+                                    $(modal).dialog('close');
+                                }
+                            },
+                            error: function (xhr, ajaxOptions, thrownError) {
+                                $(modal).dialog('close');
+                            }
+                        });
+                    });
+                }
+
+                $("#order-button").click(function () {
+                    $.ajax({
+                        type: "GET",
+                        url: "{% url 'order' %}",
+                        context: document.body
+                    }).done(function(response) {
+                        $("#dialog").html(response);
+                        $("#dialog").dialog("open");
+                        formAjaxSubmit('.order-form', '#dialog');
+                    });
+                });
+            });
+        </script>
     </body>
 </html>
