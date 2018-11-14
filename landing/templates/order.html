@@ -12,7 +12,7 @@
             <link href="{% static 'css/order.css' %}" rel="stylesheet">
     </head>
     <body>
-        <form>
+        <form method="post" action="{% url 'order' %}">
             {% include "forms/errors.html" with errors=form.non_field_errors %}
             <div>
                 {% csrf_token %}
@@ -25,9 +25,7 @@
                 {% include "forms/fields/multicheckbox.html" with field=form.options %}
                 {% include "forms/fields/textarea.html" with field=form.comments %}
             </div>
-            <div>
-                <button type="submit">Отправить заявку</button>
-            </div>
+            <input type="submit" value="Отправить заявку">
         </form>
     </body>
 </html>
