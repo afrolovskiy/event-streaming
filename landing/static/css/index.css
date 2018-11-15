@@ -20,7 +20,8 @@ body {
 
 .title-content {
   z-index: 100;
-  font-size: 4rem;
+  font-size: 3.5rem;
+  font-weight: bold;
   color: white;
   text-transform: uppercase;
   text-align: center;
@@ -33,9 +34,17 @@ body {
 
 .slogan {
   font-size: 2rem;
+  font-weight: bold;
   color: white;
   background-color: black;
   text-align: center;
+}
+
+.slogan-text {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 8rem;
 }
 
 .price {
@@ -109,6 +118,7 @@ body {
   margin-right: auto;
   display: flex;
   width: 13rem;
+  cursor: pointer;
 }
 
 .footer {
@@ -133,4 +143,16 @@ body {
 .ui-widget-overlay {
   opacity: 0.9;
   background: black;
+}
+
+.form-group {
+  display: flex;
+}
+
+.control-label {
+  width: 50%;
+}
+
+.form-control {
+  width: 50%;
 }
