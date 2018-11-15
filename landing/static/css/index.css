@@ -128,6 +128,14 @@ body {
   text-align: center;
 }
 
+.footer-text {
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 8rem;
+}
+
 .ui-dialog-titlebar {
   display: none;
 }
