@@ -31,35 +31,33 @@
         </div>
         <div class="price">
             <img class="price-background" src="{% static 'images/price.jpg' %}" />
-            <div class="price-content">
-                <div class="price-title">Организация трансляций до 2 часов</div>
-                <div class="price-item-group">
-                    <div class="price-item">
-                        <div class="price-name">1 камера</div>
-                        <div class="price-value">2 700,00 руб</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-name">2 камеры</div>
-                        <div class="price-value">5 450,00 руб</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-name">3 камеры</div>
-                        <div class="price-value">6 850,00 руб</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-name">+1 комментатор</div>
-                        <div class="price-value">+1 400,00 руб</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-name">+2 комментатора</div>
-                        <div class="price-value">+2 800,00 руб</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-name">наш интернет</div>
-                        <div class="price-value">от 200,00 до 2000,00 руб</div>
-                    </div>
+            <div class="container price-content">
+                <h3 class="price-title">Организация трансляций до 2 часов</h3>
+                <div class="row justify-content-md-center price-item-group">
+                    <div class="col col-md-4 price-item price-name">1 камера</div>
+                    <div class="col col-md-4 price-item">2 700,00 руб</div>
                 </div>
-                <input type="button" id="order-button" class="order-button" value="Заказать" />
+                <div class="row justify-content-md-center price-item-group">
+                    <div class="col col-md-4 price-item price-name">2 камеры</div>
+                    <div class="col col-md-4 price-item">5 450,00 руб</div>
+                </div>
+                <div class="row justify-content-md-center price-item-group">
+                    <div class="col col-md-4 price-item price-name">3 камеры</div>
+                    <div class="col col-md-4 price-item">6 850,00 руб</div>
+                </div>
+                <div class="row justify-content-md-center price-item-group">
+                    <div class="col col-md-4 price-item price-name">+1 комментатор</div>
+                    <div class="col col-md-4 price-item">+1 400,00 руб</div>
+                </div>
+                <div class="row justify-content-md-center price-item-group">
+                    <div class="col col-md-4 price-item price-name">+2 комментатора</div>
+                    <div class="col col-md-4 price-item">+2 800,00 руб</div>
+                </div>
+                <div class="row justify-content-md-center price-item-group">
+                    <div class="col col-md-4 price-item price-name">наш интернет</div>
+                    <div class="col col-md-4 price-item">от 200,00 до 2000,00 руб</div>
+                </div>
+                <button type="button" id="order-button" class="btn btn-lg order-button">Заказать</button>
             </div>
         </div>
         <div class="footer">
