@@ -1,5 +1,5 @@
 {% extends "forms/fields/field.html" %}
 
 {% block input %}
-    <input type="text" id="{{ field.auto_id }}" class="form-control" name="{{ field.name }}" value="{{ field.value|default_if_none:''|date:'d/m/Y' }}">
+    <input type="text" id="{{ field.auto_id }}" class="form-control" name="{{ field.name }}" value="{{ field.value }}">
 {% endblock %}

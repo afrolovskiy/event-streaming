@@ -1,5 +1,7 @@
 from django import forms
+from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
 
 
 class OrderForm(forms.Form):
@@ -22,7 +24,7 @@ class OrderForm(forms.Form):
 
     event = forms.CharField(max_length=255, label='Мероприятие')
     place = forms.CharField(max_length=255, label='Местро проведения')
-    date = forms.DateField(label='Дата проведения')
+    date = forms.DateField(label='Дата проведения', input_formats=['%d/%m/%Y'])
     name = forms.CharField(max_length=255, label='Как к Вам обращаться')
     phone = forms.CharField(max_length=64, label='Контактный телефон')
     email = forms.CharField(max_length=255, label='Электронная почта')
