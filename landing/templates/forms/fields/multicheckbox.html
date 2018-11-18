@@ -1,12 +1,12 @@
 {% extends "forms/fields/field.html" %}
 
 {% block input %}
-    <ul class="form-control">
+    <div class="checkbox-group">
         {% for value, text in field.field.choices %}
-        <li>
-            <label for="{{ field.name }}" class="control-label">{{ text}}</label>
-            <input type="checkbox" id="{{ field.auto_id }}" class="form-control" name="{{ field.name }}" value="{{ value|default_if_none:'' }}">
-        </li>
+        <div class="custom-checkbox">
+            <input id="{{ field.auto_id }}" type="checkbox" name="{{ field.name }}" value="{{ value|default_if_none:'' }}"{% if value in form.cleaned_data.options %} checked{% endif %}>
+            <label class="checkbox-label" for="{{ field.name }}">{{ text }}</label>
+        </div>
         {% endfor %}
-    </ul>
+    </div>
 {% endblock %}

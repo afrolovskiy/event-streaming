@@ -22,7 +22,7 @@
                 {% include "forms/fields/text.html" with field=form.name %}
                 {% include "forms/fields/text.html" with field=form.phone %}
                 {% include "forms/fields/email.html" with field=form.email %}
-                <!-- {% include "forms/fields/multicheckbox.html" with field=form.options %} -->
+                {% include "forms/fields/multicheckbox.html" with field=form.options %}
                 {% include "forms/fields/textarea.html" with field=form.comments %}
                 <div class="form-row">
                     <button type="submit" class="btn btn-primary order-form-submit">Отправить заявку</button>

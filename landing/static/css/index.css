@@ -156,6 +156,10 @@ body {
   color: white;
 }
 
+.checkbox-group {
+  color: white;
+}
+
 .order-form-submit {
   background: transparent;
   border-radius: 3px;
