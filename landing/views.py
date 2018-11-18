@@ -10,7 +10,7 @@ class IndexView(TemplateView):
 
 
 class OrderView(FormView):
-    template_name = 'order.html'
+    template_name = 'forms/order.html'
     form_class = OrderForm
 
     def get_success_url(self):

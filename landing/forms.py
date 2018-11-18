@@ -1,4 +1,5 @@
 from django import forms
+from django.core.mail import EmailMultiAlternatives
 
 
 class OrderForm(forms.Form):
@@ -30,4 +31,22 @@ class OrderForm(forms.Form):
                                required=False)
 
     def send_email(self):
+        subject = 'Новая заявка на онлайн трансляцию'
+        context = {
+            'event': self.cleaned_data['event'],
+            'place': self.cleaned_data['place'],
+            'date': self.cleaned_data['date'],
+            'name': self.cleaned_data['name'],
+            'phone': self.cleaned_data['phone'],
+            'email': self.cleaned_data['email'],
+            'options': self.cleaned_data['options'],
+            'comments': self.cleaned_data['comments'],
+        }
+        msg_text = render_to_string('emails/order.txt', context)
+        msg_html = render_to_string('emails/order.html', context)
+        msg = EmailMultiAlternatives(
+            subject, msg_text,
+            to=settings.NOTIFIED_EMAILS)
+        msg.attach_alternative(msg_html, "text/html")
+        msg.send()
         pass
