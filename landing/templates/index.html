@@ -8,11 +8,11 @@
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-            <!-- JQuery UI CSS -->
-            <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
             <!-- Bootstrap CSS -->
             <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+            <!-- JQuery UI CSS -->
+            <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
             <!-- Custom CSS -->
             <link href="{% static 'css/index.css' %}" rel="stylesheet">
@@ -57,7 +57,7 @@
                     <div class="col col-md-4 price-item price-name">наш интернет</div>
                     <div class="col col-md-4 price-item">от 200,00 до 2000,00 руб</div>
                 </div>
-                <button type="button" id="order-button" class="btn btn-lg order-button">Заказать</button>
+                <button type="button" class="btn btn-lg order-button" data-toggle="modal" data-target="#order-modal" >Заказать</button>
             </div>
         </div>
         <div class="footer">
@@ -65,21 +65,20 @@
                 Все права защищены
             </div>
         </div>
-        <div id="dialog" style="display: none"></div>
+        <div class="modal" id="order-modal" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel" aria-hidden="true"></div>
 
         <!-- Libraries -->
         <!-- jQuery -->
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <!-- Popper -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <!-- Bootstrap -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <!-- jQuery UI -->
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
         <!-- Page javascript -->
         <script type="text/javascript">
-            $(function () {
-                $("#dialog").dialog({
-                    autoOpen: false,
-                    modal: true,
-                });
-
+            $(document).ready(function(){
                 var formAjaxSubmit = function(form, modal) {
                     $(form).submit(function (e) {
                         e.preventDefault();
@@ -90,27 +89,36 @@
                             success: function (xhr, ajaxOptions, thrownError) {
                                 if ( $(xhr).find('.has-error').length > 0 ) {
                                     $(modal).html(xhr);
+                                    $('input[name=date]').datepicker({
+                                        dateFormat: 'dd/mm/yy',
+                                        changeMonth: true,
+                                        changeYear: true,
+                                    });
                                     formAjaxSubmit(form, modal);
                                 } else {
-                                    $(modal).dialog('close');
+                                    $(modal).modal('toggle');
                                 }
                             },
                             error: function (xhr, ajaxOptions, thrownError) {
-                                $(modal).dialog('close');
+                                $(modal).modal('toggle');
                             }
                         });
                     });
                 }
 
-                $("#order-button").click(function () {
+                $("#order-modal").on('show.bs.modal', function (event){
+                    var modal = $(this);
                     $.ajax({
-                        type: "GET",
                         url: "{% url 'order' %}",
                         context: document.body
                     }).done(function(response) {
-                        $("#dialog").html(response);
-                        $("#dialog").dialog("open");
-                        formAjaxSubmit('.order-form', '#dialog');
+                        modal.html(response);
+                        $('input[name=date]').datepicker({
+                            dateFormat: 'dd/mm/yy',
+                            changeMonth: true,
+                            changeYear: true,
+                        });
+                        formAjaxSubmit('.order-form', '#order-modal');
                     });
                 });
             });

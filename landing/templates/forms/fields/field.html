@@ -1,11 +1,13 @@
-<div class="form-group {% if field.errors %}has-error{% endif %}">
-    <label for="{{ field.auto_id }}" class="control-label">
+<div class="form-row {% if field.errors %}has-error{% endif %}">
+    <label for="{{ field.auto_id }}" class="control-label col-auto">
         {% block label %}
             {{ field.label }}
         {% endblock %}
     </label>
 
-    {% block input %}{% endblock %}
+    <div class="col-auto">
+        {% block input %}{% endblock %}
+    </div>
 
     {% block help-block %}
         {% if field.help_text %}
