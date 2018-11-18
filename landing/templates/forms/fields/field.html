@@ -5,9 +5,7 @@
         {% endblock %}
     </label>
 
-    <div class="col-auto">
-        {% block input %}{% endblock %}
-    </div>
+    {% block input %}{% endblock %}
 
     {% block help-block %}
         {% if field.help_text %}

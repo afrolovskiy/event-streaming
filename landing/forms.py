@@ -26,7 +26,8 @@ class OrderForm(forms.Form):
     phone = forms.CharField(max_length=64, label='Контактный телефон')
     email = forms.CharField(max_length=255, label='Электронная почта')
     options = forms.MultipleChoiceField(choices=OPTIONS, label='Необходимо')
-    comments = forms.CharField(max_length=512, label='Комментарии')
+    comments = forms.CharField(max_length=512, label='Комментарии',
+                               required=False)
 
     def send_email(self):
         pass

@@ -24,7 +24,9 @@
                 {% include "forms/fields/email.html" with field=form.email %}
                 <!-- {% include "forms/fields/multicheckbox.html" with field=form.options %} -->
                 {% include "forms/fields/textarea.html" with field=form.comments %}
-                <button type="submit" class="btn btn-primary order-form-submit">Отправить заявку</button>
+                <div class="form-row">
+                    <button type="submit" class="btn btn-primary order-form-submit">Отправить заявку</button>
+                </div>
             </form>
         </div>
     </div>

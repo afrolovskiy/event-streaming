@@ -138,15 +138,22 @@ body {
   opacity: .9;
 }
 
+.form-row {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
 .control-label {
   color: white;
   font-weight: bold;
+  margin-bottom: 0;
 }
 
 .form-control {
   border: 2px solid #3c6796;
   border-radius: 3px;
   background: transparent;
+  color: white;
 }
 
 .order-form-submit {
@@ -155,4 +162,10 @@ body {
   border:2px red solid;
   text-transform: uppercase;
   font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.has-error > .help-block {
+  color: red;
 }
