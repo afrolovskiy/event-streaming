@@ -104,7 +104,7 @@ venv.bak/
 .mypy_cache/
 
 # Folder with static
-landing/public/
+events/public/
 
 # Instance specific settings
 local.py
