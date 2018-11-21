@@ -23,7 +23,7 @@ class OrderForm(forms.Form):
     )
 
     event = forms.CharField(max_length=255, label='Мероприятие')
-    place = forms.CharField(max_length=255, label='Местро проведения')
+    place = forms.CharField(max_length=255, label='Место проведения')
     date = forms.DateField(label='Дата проведения', input_formats=['%d/%m/%Y'])
     name = forms.CharField(max_length=255, label='Как к Вам обращаться')
     phone = forms.CharField(max_length=64, label='Контактный телефон')
@@ -48,7 +48,9 @@ class OrderForm(forms.Form):
         msg_html = render_to_string('emails/order.html', context)
         msg = EmailMultiAlternatives(
             subject, msg_text,
-            to=settings.NOTIFIED_EMAILS)
+            to=settings.NOTIFIED_EMAILS,
+            reply_to=self.cleaned_data['email'],
+        )
         msg.attach_alternative(msg_html, "text/html")
         msg.send()
         pass

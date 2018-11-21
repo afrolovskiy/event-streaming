@@ -1,9 +1,8 @@
-
-event: {{ event }}
-place: {{ place }}
-date: {{ date }}
-name: {{ name }}
-phone: {{ phone }}
-email: {{ email }}
-options: {{ options }}
-comments: {{ comments }}
+Мероприятие: {{ event }}
+Место проведения: {{ place }}
+Дата проведения: {{ date }}
+Как к Вам обращаться: {{ name }}
+Контактный телефон: {{ phone }}
+Электронная почта: {{ email }}
+Необходимо: {{ options }}
+Комментарии: {{ comments }}
