@@ -51,7 +51,7 @@ class OrderForm(forms.Form):
         msg = EmailMultiAlternatives(
             subject, msg_text,
             to=settings.NOTIFIED_EMAILS,
-            reply_to=self.cleaned_data['email'],
+            reply_to=[self.cleaned_data['email']],
         )
         msg.attach_alternative(msg_html, "text/html")
         msg.send()
