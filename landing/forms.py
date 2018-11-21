@@ -43,7 +43,7 @@ class OrderForm(forms.Form):
             'name': self.cleaned_data['name'],
             'phone': self.cleaned_data['phone'],
             'email': self.cleaned_data['email'],
-            'options': options.join(','),
+            'options': ','.join(options),
             'comments': self.cleaned_data['comments'],
         }
         msg_text = render_to_string('emails/order.txt', context)
