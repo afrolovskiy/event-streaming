@@ -19,7 +19,7 @@ body {
 }
 
 .title-content {
-  z-index: 100;
+  z-index: 1000;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -28,6 +28,18 @@ body {
   color: white;
   text-transform: uppercase;
   text-align: center;
+}
+
+.title-contacts {
+  z-index: 1000;
+  position: absolute;
+  right: 3%;
+  top: 1%;
+}
+
+.title-contacts a {
+  color: white;
+  font-weight: bold;
 }
 
 .slogan {
