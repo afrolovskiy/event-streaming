@@ -18,7 +18,7 @@
                 {% csrf_token %}
                 {% include "forms/fields/text.html" with field=form.event %}
                 {% include "forms/fields/text.html" with field=form.place %}
-                {% include "forms/fields/date.html" with field=form.date %}
+                {% include "forms/fields/text.html" with field=form.date %}
                 {% include "forms/fields/text.html" with field=form.name %}
                 {% include "forms/fields/text.html" with field=form.phone %}
                 {% include "forms/fields/email.html" with field=form.email %}

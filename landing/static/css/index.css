@@ -154,6 +154,10 @@ h1 {
   opacity: .9;
 }
 
+.close {
+  color: white;
+}
+
 .form-row {
   margin-top: 4px;
   margin-bottom: 4px;
