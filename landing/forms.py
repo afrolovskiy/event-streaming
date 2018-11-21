@@ -34,6 +34,8 @@ class OrderForm(forms.Form):
 
     def send_email(self):
         subject = 'Новая заявка на онлайн трансляцию'
+        option_names = dict(self.OPTIONS)
+        options = [option_names[opt] for opt in self.cleaned_data['options']]
         context = {
             'event': self.cleaned_data['event'],
             'place': self.cleaned_data['place'],
@@ -41,7 +43,7 @@ class OrderForm(forms.Form):
             'name': self.cleaned_data['name'],
             'phone': self.cleaned_data['phone'],
             'email': self.cleaned_data['email'],
-            'options': self.cleaned_data['options'],
+            'options': options.join(','),
             'comments': self.cleaned_data['comments'],
         }
         msg_text = render_to_string('emails/order.txt', context)
