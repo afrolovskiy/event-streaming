@@ -10,16 +10,16 @@ class OrderForm(forms.Form):
     THREE_CAMERAS = '3 cameras'
     SIGNLE_COMMENTATOR = '1 commentator'
     TWO_COMMENTATORS = '2 commentators'
-    THREE_COMMENTATORS = '3 commentators'
     OUR_INTERNET = 'our internet'
+    EDITING = 'editing'
     OPTIONS = (
         (SINGLE_CAMERA, 'Съемка в 1 камеру'),
         (TWO_CAMERAS, 'Съемка в 2 камеры'),
         (THREE_CAMERAS, 'Съемка в 3 камеры'),
         (SIGNLE_COMMENTATOR, '1 комментатор'),
         (TWO_COMMENTATORS, '2 комментатора'),
-        (THREE_COMMENTATORS, '3 комментатора'),
         (OUR_INTERNET, 'Наш интернет'),
+        (EDITING, 'Монтаж'),
     )
 
     event = forms.CharField(max_length=255, label='Мероприятие')
